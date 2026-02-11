@@ -33,7 +33,7 @@ Her work focuses on geometry-driven, low-carbon structures and experimentally in
 
 <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:18px;">
   <div style="border:1px solid #e8e8e8; border-radius:10px; overflow:hidden;">
-    <img src="/assets/images/structures.jpg" alt="Structural Systems" style="width:100%; height:150px; object-fit:cover;"
+    <img src="/assets/images/structures.jpg" alt="kineticPavillion" style="width:100%; height:150px; object-fit:cover;"
          onerror="this.style.display='none';" />
     <div style="padding:14px 14px 16px 14px;">
       <div style="font-weight:600; margin-bottom:6px;">Structural Systems</div>
@@ -45,36 +45,36 @@ Her work focuses on geometry-driven, low-carbon structures and experimentally in
   </div>
 
   <div style="border:1px solid #e8e8e8; border-radius:10px; overflow:hidden;">
-    <img src="/assets/images/computation.jpg" alt="Computational Design" style="width:100%; height:150px; object-fit:cover;"
+    <img src="/assets/images/computation.jpg" alt="brunelleschi" style="width:100%; height:150px; object-fit:cover;"
          onerror="this.style.display='none';" />
     <div style="padding:14px 14px 16px 14px;">
       <div style="font-weight:600; margin-bottom:6px;">Computational Design</div>
       <div style="line-height:1.5;">
-        Custom solvers and parametric workflows linking geometry, mechanics, and performance
+        Custom solvers and parametric workflows linking geometry and performance
         for architectural and structural applications.
       </div>
     </div>
   </div>
 
   <div style="border:1px solid #e8e8e8; border-radius:10px; overflow:hidden;">
-    <img src="/assets/images/reversibility.jpg" alt="Reversible & Circular Construction" style="width:100%; height:150px; object-fit:cover;"
+    <img src="/assets/images/reversibility.jpg" alt="pinocchio" style="width:100%; height:150px; object-fit:cover;"
          onerror="this.style.display='none';" />
     <div style="padding:14px 14px 16px 14px;">
       <div style="font-weight:600; margin-bottom:6px;">Reversible & Circular Construction</div>
       <div style="line-height:1.5;">
-        Demountable, dry-jointed, and low-impact construction systems developed with a focus on reuse,
-        adaptability, and lifecycle performance.
+       Kinetic, demountable, and transportable construction systems developed with a focus on adaptability, reuse,
+        and lifecycle performance.
       </div>
     </div>
   </div>
 
   <div style="border:1px solid #e8e8e8; border-radius:10px; overflow:hidden;">
-    <img src="/assets/images/buildingtech.jpg" alt="Building Technology & Prototyping" style="width:100%; height:150px; object-fit:cover;"
+    <img src="/assets/images/buildingtech.jpg" alt="masonryNode" style="width:100%; height:150px; object-fit:cover;"
          onerror="this.style.display='none';" />
     <div style="padding:14px 14px 16px 14px;">
       <div style="font-weight:600; margin-bottom:6px;">Building Technology & Prototyping</div>
       <div style="line-height:1.5;">
-        Experimental building components, façade systems, and acoustic elements developed through
+        Experimental building components and façade systems developed through
         digital fabrication and physical testing.
       </div>
     </div>
