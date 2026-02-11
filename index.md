@@ -1,7 +1,4 @@
----
-layout: default
-title: Home
----
+
 
 <div style="display:flex; gap:18px; align-items:center; flex-wrap:wrap; margin-top:8px;">
   <!-- Optional photo (add later by placing /assets/images/profile.jpg) -->
