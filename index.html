@@ -15,18 +15,23 @@
             display: flex;
             width: 100vw; /* 'vw' stands for Viewport Width */
             justify-content: center; /* centered */
-            /* background: hsl(195, 40%, 85%); /* colored band */ 
+            /* background: hsl(195, 40%, 85%); /* colored band */
             background-color: hsl(195, 45%, 90%);
             border-radius: 0; /*  top-left , top-right, bottom-right, bottom-left*/
             box-sizing: border-box; /*  includes padding in the width calculation */
             gap: 30px; /*Text spacing*/
             padding: 16px 0;
             border-bottom: 1px solid #e6e6e6;
-            margin-bottom: 30px;
-            space below header;
-            negative margins extend background */ font-size: 0.9rem;
+            margin-bottom: 30px; /* space below header, negative margins extend background*/
         }  
         .navbar a {text-decoration: none; color: #333;font-weight: 500; padding: 6px 12px;}
+
+            .navbar a.active {
+                text-decoration: underline;
+                text-underline-offset: 6px; /* Increases space between text and line */
+                font-weight: 500; /* Keeps it consistent with other links */
+                color: #333;
+            }
 
         /*  "Content Wrapper": This keeps  profile and text centered */
         .content-wrapper {
@@ -40,57 +45,31 @@
         .profile-img {width: 160px;height: 160px;object-fit: cover;border-radius: 50%;border: 1px solid #e6e6e6;flex-shrink: 0;}
         .profile-text { flex: 1; min-width: 280px; }
         .links { margin-top: 12px; display: flex; gap: 14px; flex-wrap: wrap; }
-        
 
 
-        /* ===== Research Pillars ===== */
-        .pillars { margin-top: 30px; }
-        .pillar { padding: 16px 0; border-top: 1px solid #e6e6e6; }
-        .pillar:first-of-type { border-top: none; }
-        .pillar h3 { margin: 0 0 6px; font-size: 1rem; font-weight: 600; }
-        .pillar p { margin: 0; line-height: 1.45; font-size: 0.92rem; }
-        
-        /* ===== Image Grid ===== */
-        .image-grid {display: grid;grid-template-columns: repeat(3, 1fr);gap: 14px;margin-top: 24px;}
-            .image-grid img {
-                width: 100%;
-                height: 240px;
-                object-fit: cover;
-                border-radius: 8px;
-                cursor: pointer;
-                border: 1px solid #e6e6e6;
-            }        
-        /* Responsive Grids */    
-        @media (max-width: 900px) { .image-grid { grid-template-columns: repeat(2, 1fr); }}
-        @media (max-width: 600px) {    .image-grid { grid-template-columns: 1fr; }}
- 
 
-        /* ===== Lightbox ===== */
-        .lightbox {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.85);
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
+        .section-title {
+            margin: 20px 0 8px;
+            font-size: 1.05rem;
+            font-weight: 650;
         }
 
-        .lightbox img {
-            max-width: 90%;
-            max-height: 80%;
-            border-radius: 10px;
+        .section-note {
+            margin: 0 0 12px;
+            line-height: 1.55;
+            color: #555;
+            max-width: 85ch;
         }
 
-        .lightbox.active { display: flex; }
-
-        .footer {
-            margin-top: 40px;
-            font-size: 0.9rem;
-            color: #777;
-            border-top: 1px solid #eee;
-            padding-top: 20px;
+        .course-list {
+            margin: 0 0 14px 18px;
         }
+
+            .course-list li {
+                margin: 6px 0;
+                line-height: 1.45;
+            }
+
 
 
 
@@ -103,106 +82,89 @@
 
     <nav class="navbar">
         <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
         <a href="teaching.html">Teaching</a>
         <a href="projects.html">Projects</a>
         <a href="practice.html">Practice</a>
-        <a href="services.html">Services</a>
+        
     </nav>
 
     <div class="content-wrapper">
         <section class="profile-container">
-            <img src="assets/images/profile.jpg" alt="Valentina Beatini" class="profile-img" onerror="this.style.backgroundColor='#ddd'" />
+            <img src="assets/images/profile.jpg" alt="Valentina Beatini" class="profile-img"
+                 onerror="this.style.backgroundColor='#ddd'" />
 
             <div class="profile-text">
                 <h1 style="margin:0 0 8px 0;">Valentina Beatini</h1>
+
                 <div style="font-size:1.1rem; opacity:.85; margin-bottom:12px;">
                     Architectural Engineer · Geometry-Driven Structures · Computational Methods
                 </div>
-                <div style="line-height:1.6;">
-                    Licensed architect and researcher in computational and structural design, working at the intersection of computation, geometry-informed structural systems, and reversible construction. I develop analytical and design methods that connect architectural intent with structural reasoning, prototyping, and performance modelling, and collaborate across disciplines to translate research into testable and built outcomes.
+
+                <div style="line-height:1.6; max-width: 85ch;">
+                    Licensed architect and researcher in computational and structural design, working at the intersection of computation, geometry-informed structural
+                    systems, and reversible construction. I develop analytical and design methods that connect architectural intent with
+                    structural reasoning, prototyping, and performance modelling.
                 </div>
 
                 <div class="links">
                     <a href="cv.pdf">CV (PDF)</a>
-                    <a href="https://scholar.google.com/citations?user=SRA9aYcAAAAJ&hl=en" target="_blank">Google Scholar</a>
-                    <a href="https://github.com/valbe36" target="_blank" rel="noopener">GitHub</a>
-                    <a href="https://orcid.org/0000-0002-6916-9897" target="_blank">ORCID</a>
-
-
+                    <a href="https://scholar.google.com/citations?user=SRA9aYcAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+                    <a href="https://orcid.org/0000-0002-6916-9897" target="_blank" rel="noopener">ORCID</a>
+                    <a href="https://github.com/vbeatini" target="_blank" rel="noopener">GitHub</a>
+                    <!-- Optional -->
+                    <a href="https://www.linkedin.com/in/valentina-beatini-94a3441b7/" target="_blank" rel="noopener">LinkedIn</a>
                 </div>
             </div>
         </section>
 
+        <hr style="border:0; border-top:1px solid #eee; margin:26px 0;" />
 
-        <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;" />
-
-        <section class="pillars">
-
-            <div class="pillar">
-                <h3>Geometry & Structural Systems</h3>
-                <p>
-                    Geometry-informed structural design, including masonry, active-bending systems, and deployable structures explored through analysis and prototypes.
-                </p>
-            </div>
-
-            <div class="pillar">
-                <h3>Computational Methods & Performance Modelling</h3>
-                <p>
-                    Custom solvers and parametric workflows linking geometry and performance for architectural and structural applications, including data-driven and machine learning approaches.
-                </p>
-            </div>
-
-            <div class="pillar">
-                <h3>Reversible & Adaptive Construction</h3>
-                <p>
-                    Kinetic, demountable, and transportable construction systems developed with a focus on adaptability, reuse, and lifecycle performance.
-                </p>
-            </div>
-
-        </section>
+        <h2 class="section-title">Selected highlights</h2>
+        <ul class="course-list">
+            <li>
+                <strong>MarmoMac Exhibition</strong> (2025), Verona, IT — with Prof. Arch. A. Pizzigoni.
+                <em>Branching Knot</em>: novel, self-balancing masonry system.
+            </li>
+            <li>
+                <strong>International Research Pavilion Competition</strong> (2021) — II Placement.
+                With MS student L.H. Heinzl and Prof. Eng. P.H. Kirkegaard.
+            </li>
+            <li>
+                <strong>Kayseri Design Week</strong> (2017) — <em>Foldable Pavilions</em> (students pavilion),
+                supported by the Chamber of Architects (Kayseri, TR). Lead; collaborative work with SMiA research group (UPC).
+            </li>
+            <li>
+                <strong>Open-source tool</strong> (2018) — Code repository for a custom NSCD masonry simulator,
+                developed with Prof. Eng. Alessandro Tasora:
+                <a href="https://github.com/tasora/masonry" target="_blank" rel="noopener">(Link)</a>.
+            </li>
+        </ul>
 
 
+        <h2 class="section-title">Scientific service</h2>
+        <p class="section-note">
+            Regular peer reviewer for international journals in computational and structural research in architecture and engineering
+            (selected: <em>Engineering Structures</em>, <em>Royal Society Proceedings A</em>, <em>Scientific Reports</em>,
+            <em>The Journal of Architecture</em>). I also contribute to scientific committees (including ICSA 2025, Antwerp,
+            and ATI International Symposium series, Izmir).
+        </p>
 
-        <section class="image-grid">
-            <img src="assets/images/brunelleschi.jpg" alt="computational_masonry">
-            <img src="assets/images/masonryNode.jpg" alt="lightweight_reversible_masonry">
-            <img src="assets/images/kineticPavillion.jpg" alt="kineitc_pavillion">
-            <img src="assets/images/MLEmotionalAssessment.jpg" alt="ML emotional assessment">
-            <img src="assets/images/pinocchio.jpg" alt="no_scaff_reversible_masonry">
-            <img src="assets/images/temp.jpg" alt="Reversible facade">
-        </section>
-
+        <h2 class="section-title">Contact</h2>
+        <p class="section-note">
+            Email: <a href="mailto:valentina.beatini@gmail.com">valentina.beatini@gmail.com</a>
+        </p>
 
         <div class="footer">
-            Contact: <a href="mailto:valentina.beatini@gmail.com">valentina.beatini@gmail.com</a>
+            <p>© Valentina Beatini</p>
         </div>
-
-    </div> <div class="lightbox" id="lightbox">
-        <img id="lightbox-img">
     </div>
 
-    <script>
-        const images = document.querySelectorAll('.image-grid img');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-
-        images.forEach(img => {
-            img.addEventListener('click', () => {
-                lightbox.classList.add('active');
-                lightboxImg.src = img.src;
-            });
-        });
-
-        lightbox.addEventListener('click', () => {
-            lightbox.classList.remove('active');
-        });
-    </script>
 
 
 
 </body>
 </html>
-
 
 
 
