@@ -3,124 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
     <title>Valentina Beatini</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; max-width: 960px; margin: 0 auto; padding: 20px; color: #333; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;  margin: 0 auto; padding: 0; color: #333; }
         a { color: #0066cc; text-decoration: none; }
         a:hover { text-decoration: underline; }
-        
+
+        /* ===== Top Navigation ===== */
+        .navbar {
+            display: flex;
+            width: 100vw; /* 'vw' stands for Viewport Width */
+            justify-content: center; /* centered */
+            /* background: hsl(195, 40%, 85%); /* colored band */ 
+            background-color: hsl(195, 45%, 90%);
+            border-radius: 0; /*  top-left , top-right, bottom-right, bottom-left*/
+            box-sizing: border-box; /*  includes padding in the width calculation */
+            gap: 30px; /*Text spacing*/
+            padding: 16px 0;
+            border-bottom: 1px solid #e6e6e6;
+            margin-bottom: 30px;
+            space below header;
+            negative margins extend background */ font-size: 0.9rem;
+        }  
+        .navbar a {text-decoration: none; color: #333;font-weight: 500; padding: 6px 12px;}
+
+        /*  "Content Wrapper": This keeps  profile and text centered */
+        .content-wrapper {
+            max-width: 960px; /* Limits the width */
+            margin: 0 auto; /* Centers the box on the page */
+            padding: 0 20px; /* Prevents text from touching phone edges */
+        }
+
         /* Profile Section */
-        .profile-container { display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 40px; }
-        .profile-img { width: 160px; height: 160px; object-fit: cover; border-radius: 50%; border: 1px solid #e6e6e6; flex-shrink: 0;}
+        .profile-container { max-width: 960px; display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 40px; }
+        .profile-img {width: 160px;height: 160px;object-fit: cover;border-radius: 50%;border: 1px solid #e6e6e6;flex-shrink: 0;}
         .profile-text { flex: 1; min-width: 280px; }
         .links { margin-top: 12px; display: flex; gap: 14px; flex-wrap: wrap; }
-
-        /* The 2x2 Grid */
-        .project-grid { 
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 18px; 
-            margin-top: 20px;
-            max-width: 800px;
-            justify-items: center; /* centers each card inside its column */
-            margin-left: auto;        /* centers the entire grid block */
-            margin-right: auto;
-            justify-items: stretch;   /* cards fill the column width */
-        }
         
-        /* On mobile phones, switch to 1 column */
-        @media (max-width: 600px) {
-            .project-grid { grid-template-columns: 1fr; max-width: 100%; }
-            .profile-container { justify-content: center; text-align: center; }
-            .links { justify-content: center; }
+
+
+        /* ===== Research Pillars ===== */
+        .pillars { margin-top: 30px; }
+        .pillar { padding: 16px 0; border-top: 1px solid #e6e6e6; }
+        .pillar:first-of-type { border-top: none; }
+        .pillar h3 { margin: 0 0 6px; font-size: 1rem; font-weight: 600; }
+        .pillar p { margin: 0; line-height: 1.45; font-size: 0.92rem; }
+        
+        /* ===== Image Grid ===== */
+        .image-grid {display: grid;grid-template-columns: repeat(3, 1fr);gap: 14px;margin-top: 24px;}
+            .image-grid img {
+                width: 100%;
+                height: 240px;
+                object-fit: cover;
+                border-radius: 8px;
+                cursor: pointer;
+                border: 1px solid #e6e6e6;
+            }        
+        /* Responsive Grids */    
+        @media (max-width: 900px) { .image-grid { grid-template-columns: repeat(2, 1fr); }}
+        @media (max-width: 600px) {    .image-grid { grid-template-columns: 1fr; }}
+ 
+
+        /* ===== Lightbox ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
         }
 
-        .card { border: 1px solid #e8e8e8; border-radius: 8px; overflow: hidden; background: white; display: flex; flex-direction: column; }
-        .card img {
-            width:100%;
-            height: 180px;
-            object-fit: contain;
-            background-color: #f4f4f4;
-            display: block;
-            padding: 8px;
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
         }
-        .card-content { padding: 8px; flex: 1; /*display:*/ flex; flex-direction: column; justify-content: flex-start; gap: 2px;}
-        .card-title { font-weight: 600; margin-bottom: 4px; font-size: 0.95rem; }
-        .card-desc { line-height: 1.4; font-size: 0.85rem; color: #555; margin: 2px; margin-top: 0;}
+
+        .lightbox.active { display: flex; }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #777;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+
+
     </style>
 </head>
+
+
+
 <body>
 
-    <div class="profile-container">
-        <img src="assets/images/profile.jpg" alt="Valentina Beatini" class="profile-img" onerror="this.style.backgroundColor='#ddd'"/>
-        
-        <div class="profile-text">
-            <h1 style="margin:0 0 8px 0;">Valentina Beatini</h1>
-            <div style="font-size:1.1rem; opacity:.85; margin-bottom:12px;">
-                Architectural Engineer · Geometry-Driven Structures · Computational Methods
-            </div>
-            <div style="line-height:1.6;">
-                Architectural engineer and licensed architect working at the intersection of computation, geometry-driven methods, and reversible structural systems. 
-                Her work develops custom analytical tools and design methods to bridge architectural design intent and structural engineering reasoning.
-            </div>
-            <div class="links">
-                <a href="cv.pdf">CV (PDF)</a>
-                <a href="https://scholar.google.com/citations?user=SRA9aYcAAAAJ&hl=en" target="_blank">Google Scholar</a>
-                <a href="https://github.com/valbe36" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://orcid.org/0000-0002-6916-9897" target="_blank">ORCID</a>
-            </div>
-        </div>
-    </div>
+    <nav class="navbar">
+        <a href="index.html">Home</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="projects.html">Projects</a>
+        <a href="practice.html">Practice</a>
+        <a href="services.html">Services</a>
+    </nav>
 
-    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;" />
+    <div class="content-wrapper">
+        <section class="profile-container">
+            <img src="assets/images/profile.jpg" alt="Valentina Beatini" class="profile-img" onerror="this.style.backgroundColor='#ddd'" />
 
-    <div class="project-grid">
-        
-        <div class="card">
-            <img src="assets/images/kineticPavillion.jpg" alt="Structural Systems" onerror="this.style.display='block'" />
-            <div class="card-content">
-                <div class="card-title">Structural Systems</div>
-                <div class="card-desc">
+            <div class="profile-text">
+                <h1 style="margin:0 0 8px 0;">Valentina Beatini</h1>
+                <div style="font-size:1.1rem; opacity:.85; margin-bottom:12px;">
+                    Architectural Engineer · Geometry-Driven Structures · Computational Methods
+                </div>
+                <div style="line-height:1.6;">
+                    Architectural engineer and licensed architect working at the intersection of computation, geometry-driven methods, and reversible structural systems.
+                    Her work develops custom analytical tools and design methods to bridge architectural design intent and structural engineering reasoning.
+                </div>
+
+                <div class="links">
+                    <a href="cv.pdf">CV (PDF)</a>
+                    <a href="https://scholar.google.com/citations?user=SRA9aYcAAAAJ&hl=en" target="_blank">Google Scholar</a>
+                    <a href="https://github.com/valbe36" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://orcid.org/0000-0002-6916-9897" target="_blank">ORCID</a>
+
+
+                </div>
+            </div>
+        </section>
+
+
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;" />
+
+        <section class="pillars">
+
+            <div class="pillar">
+                <h3>Geometry & Structural Systems</h3>
+                <p>
                     Geometry-informed structural design, including masonry, active-bending systems, and deployable structures explored through analysis and prototypes.
-                </div>
+                </p>
             </div>
+
+            <div class="pillar">
+                <h3>Computational Methods & Performance Modelling</h3>
+                <p>
+                    Custom solvers and parametric workflows linking geometry and performance for architectural and structural applications, including data-driven and machine learning approaches.
+                </p>
+            </div>
+
+            <div class="pillar">
+                <h3>Reversible & Adaptive Construction</h3>
+                <p>
+                    Kinetic, demountable, and transportable construction systems developed with a focus on adaptability, reuse, and lifecycle performance.
+                </p>
+            </div>
+
+        </section>
+
+
+
+        <section class="image-grid">
+            <img src="assets/images/brunelleschi.jpg" alt="computational_masonry">
+            <img src="assets/images/masonryNode.jpg" alt="lightweight_reversible_masonry">
+            <img src="assets/images/kineticPavillion.jpg" alt="kineitc_pavillion">
+            <img src="assets/images/MLEmotionalAssessment.jpg" alt="ML emotional assessment">
+            <img src="assets/images/pinocchio.jpg" alt="no_scaff_reversible_masonry">
+            <img src="assets/images/temp.jpg" alt="Reversible facade">
+        </section>
+
+
+        <div class="footer">
+            Contact: <a href="mailto:valentina.beatini@gmail.com">valentina.beatini@gmail.com</a>
         </div>
 
-        <div class="card">
-            <img src="assets/images/brunelleschi.jpg" alt="Computational Design" onerror="this.style.display='block'" />
-            <div class="card-content">
-                <div class="card-title">Computational Design</div>
-                <div class="card-desc">
-                    Custom solvers and parametric workflows linking geometry and performance for architectural and structural applications.
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="assets/images/pinocchio.jpg" alt="Reversible Construction" onerror="this.style.display='block'" />
-            <div class="card-content">
-                <div class="card-title">Reversible Construction</div>
-                <div class="card-desc">
-                    Kinetic, demountable, and transportable construction systems developed with a focus on adaptability, reuse, and lifecycle-aware construction.
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="assets/images/masonryNode.jpg" alt="Building Technology" onerror="this.style.display='block'" />
-            <div class="card-content">
-                <div class="card-title">Building Technology & Prototyping</div>
-                <div class="card-desc">
-                    Experimental building components and façade systems developed through digital fabrication and physical testing.
-                </div>
-            </div>
-        </div>
-
+    </div> <div class="lightbox" id="lightbox">
+        <img id="lightbox-img">
     </div>
 
-<div style="margin-top: 40px; font-size: 0.9rem; color: #777;">
-    Contact: <a href="mailto:valentina.beatini@gmail.com">valentina.beatini@gmail.com</a>
-</div>
+    <script>
+        const images = document.querySelectorAll('.image-grid img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.classList.add('active');
+                lightboxImg.src = img.src;
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+    </script>
+
+
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
